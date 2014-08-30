@@ -1,0 +1,22 @@
+# Codeception Test Suite Configuration
+
+# suite for acceptance tests.
+# perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver
+        - Db
+    config:
+        WebDriver:
+            url: 'http://localhost/ciexample/simple/read_account'
+            browser: 'chrome'
+        Db:
+            dsn: 'mysql:host=127.0.0.1;port=3306;dbname=temp'
+            user: 'root'
+            password: 'password'
+            dump: 'tests/_data/user.sql'
+            populate: true
+            cleanup: false
